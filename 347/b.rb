@@ -5,9 +5,9 @@ s = gets.chomp.chars
 def count_substring(strings)
   buff = []
   (1..strings.size).each do |n|
-    buff << strings.each_cons(n).to_a
+    strings.each_cons(n) { |x| buff << x }
   end
-  buff.map(&:uniq).map(&:count).sum
+  buff.uniq.size
 end
 
-puts count_substring(s)
+p count_substring(s)
